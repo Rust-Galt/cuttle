@@ -1,0 +1,31 @@
+[package]
+name = "cuttle"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argon2 = { version = "0.5.3", features = ["std", "zeroize"] }
+blake2 = { version = "0.10.6", features = ["reset"] }
+# blake3 = { version = "1.5.1", features = ["zeroize", "digest"] }
+chacha20 = { version = "0.9.1", features = ["std", "zeroize"] }
+clap = { version = "4.5.4", features = ["cargo"] }
+color-eyre = "0.6.3"
+rand = "0.8.5"
+# rpassword = "7.3.1"
+secrecy = "0.8.0"
+# tempfile = "3.10.1"
+
+tracing = "0.1.40"
+# tracing-indicatif = "0.3.6"
+tracing-subscriber = "0.3.18"
+
+[profile.release]
+debug = false
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev]
+debug = 0
